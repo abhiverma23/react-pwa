@@ -2,7 +2,7 @@ name: Build and Deploy React based PWA
 
 on:
   push:
-    branches: [main,prod]
+    branches: [prod]
   workflow_dispatch:
 
 jobs:
