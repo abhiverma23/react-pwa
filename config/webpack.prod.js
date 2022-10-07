@@ -5,6 +5,6 @@ module.exports = merge(common, {
   mode: 'production',
   output: {
     filename: '[name].[contenthash].js',
-    publicPath: '/pwa/react/',
+    publicPath: '/pwa/react/v1/',
   },
 });
