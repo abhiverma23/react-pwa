@@ -24,9 +24,9 @@ jobs:
           local-dir: ./dist/
           server-dir: /v1/
       
-      # - name: Purge remoteEntry.js
-      #   uses: jakejarvis/cloudflare-purge-action@master
-      #   env:
-      #     CLOUDFLARE_ZONE: ${{ secrets.PROD_CDN_ZONE }}
-      #     CLOUDFLARE_TOKEN: ${{ secrets.PROD_CDN_TOKEN }}
-      #     PURGE_URLS: '["${{ secrets.PROD_BASE_DOMAIN }}/auth/remoteEntry.js"]'
+      - name: Purge index.html
+        uses: jakejarvis/cloudflare-purge-action@master
+        env:
+          CLOUDFLARE_ZONE: ${{ secrets.PROD_CDN_ZONE }}
+          CLOUDFLARE_TOKEN: ${{ secrets.PROD_CDN_TOKEN }}
+          PURGE_URLS: '["https://project.vabhishek.com/pwa/react/v1/index.html"]'
