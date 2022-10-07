@@ -1,0 +1,32 @@
+name: Build and Deploy React based PWA
+
+on:
+  push:
+    branches: [main,prod]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build
+        run: npm init -y && cat package.json #npm install && npm run build
+
+      # - name: Deploy
+      #   uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      #   with:
+      #     server: ${{secrets.PROD_HOST_IP}}
+      #     username: ${{secrets.PROD_HOST_USER_NAME}}
+      #     password: ${{secrets.PROD_HOST_PASSWORD}}
+      #     local-dir: ./dist/
+      #     server-dir: /v1/
+      
+      # - name: Purge remoteEntry.js
+      #   uses: jakejarvis/cloudflare-purge-action@master
+      #   env:
+      #     CLOUDFLARE_ZONE: ${{ secrets.PROD_CDN_ZONE }}
+      #     CLOUDFLARE_TOKEN: ${{ secrets.PROD_CDN_TOKEN }}
+      #     PURGE_URLS: '["${{ secrets.PROD_BASE_DOMAIN }}/auth/remoteEntry.js"]'
